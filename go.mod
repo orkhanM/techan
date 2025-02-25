@@ -1,4 +1,5 @@
-module github.com/sdcoffey/techan
+// module github.com/sdcoffey/techan
+module github.com/orkhanM/techan
 
 go 1.21
 
