@@ -1,6 +1,6 @@
 package example
 
-import "github.com/sdcoffey/techan"
+import "github.com/orkhanM/techan"
 
 // StrategyExample shows how to create a simple trading strategy. In this example, a position should
 // be opened if the price moves above 30, and the position should be closed if a position moves below 30.

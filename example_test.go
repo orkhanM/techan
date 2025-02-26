@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/orkhanM/techan"
 	"github.com/sdcoffey/big"
-	"github.com/sdcoffey/techan"
 )
 
 func ExampleNewMACDHistogramIndicator() {
