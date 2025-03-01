@@ -17,3 +17,17 @@ type PositionOpenRule struct{}
 func (pnr PositionOpenRule) IsSatisfied(index int, record *TradingRecord) bool {
 	return record.CurrentPosition().IsOpen()
 }
+
+// PositionShortRule is satisfied when the current position in the trading record is short.
+type PositionShortRule struct{}
+
+func (psr PositionShortRule) IsSatisfied(index int, record *TradingRecord) bool {
+	return record.CurrentPosition().IsShort()
+}
+
+// PositionLongRule is satisfied when the current position in the trading record is long.
+type PositionLongRule struct{}
+
+func (plr PositionLongRule) IsSatisfied(index int, record *TradingRecord) bool {
+	return record.CurrentPosition().IsLong()
+}
