@@ -2,12 +2,15 @@ package techan
 
 import "github.com/sdcoffey/big"
 
+// import "fmt"
+
 type vwapIndicator struct {
 	volume Indicator
 	ctp    Indicator
 }
 
 // NewVwapIndicator returns an Indicator which returns the volume weighted average price of a candle for a given index
+// It expects two indicators, one for volume and one for close price / cumulative trade price
 func NewVwapIndicator(volume, ctp Indicator) Indicator {
 	return vwapIndicator{
 		volume,
@@ -28,5 +31,7 @@ func (v vwapIndicator) Calculate(index int) big.Decimal {
 		return big.ZERO
 	}
 
-	return numerator.Div(denominator)
+	result := numerator.Div(denominator)
+
+	return result
 }
