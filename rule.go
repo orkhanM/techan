@@ -35,6 +35,16 @@ func (or orRule) IsSatisfied(index int, record *TradingRecord) bool {
 	return or.r1.IsSatisfied(index, record) || or.r2.IsSatisfied(index, record)
 }
 
+// EqualIndicatorRule is a rule where the First Indicator must be equal to the Second Indicator to be Satisfied
+type EqualIndicatorRule struct {
+	First  Indicator
+	Second Indicator
+}
+
+func (eir EqualIndicatorRule) IsSatisfied(index int, record *TradingRecord) bool {
+	return eir.First.Calculate(index).EQ(eir.Second.Calculate(index))
+}
+
 // OverIndicatorRule is a rule where the First Indicator must be greater than the Second Indicator to be Satisfied
 type OverIndicatorRule struct {
 	First  Indicator

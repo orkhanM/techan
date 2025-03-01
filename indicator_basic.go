@@ -87,3 +87,16 @@ func (tpi typicalPriceIndicator) Calculate(index int) big.Decimal {
 	numerator := tpi.Candles[index].MaxPrice.Add(tpi.Candles[index].MinPrice).Add(tpi.Candles[index].ClosePrice)
 	return numerator.Div(big.NewFromString("3"))
 }
+
+type openTimeIndicator struct {
+	*TimeSeries
+}
+
+// NewOpenTimeIndicator returns an Indicator which returns the open time of a candle for a given index
+func NewOpenTimeIndicator(series *TimeSeries) Indicator {
+	return openTimeIndicator{series}
+}
+
+func (oti openTimeIndicator) Calculate(index int) big.Decimal {
+	return big.NewFromInt(int(oti.Candles[index].Period.Start.UnixMilli()))
+}
