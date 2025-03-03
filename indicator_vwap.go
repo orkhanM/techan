@@ -2,8 +2,6 @@ package techan
 
 import "github.com/sdcoffey/big"
 
-// import "fmt"
-
 type vwapIndicator struct {
 	volume Indicator
 	ctp    Indicator
