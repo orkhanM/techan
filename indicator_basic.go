@@ -100,3 +100,16 @@ func NewOpenTimeIndicator(series *TimeSeries) Indicator {
 func (oti openTimeIndicator) Calculate(index int) big.Decimal {
 	return big.NewFromInt(int(oti.Candles[index].Period.Start.UnixMilli()))
 }
+
+type closeTimeIndicator struct {
+	*TimeSeries
+}
+
+// NewCloseTimeIndicator returns an Indicator which returns the close time of a candle for a given index
+func NewCloseTimeIndicator(series *TimeSeries) Indicator {
+	return closeTimeIndicator{series}
+}
+
+func (cti closeTimeIndicator) Calculate(index int) big.Decimal {
+	return big.NewFromInt(int(cti.Candles[index].Period.End.UnixMilli()))
+}
